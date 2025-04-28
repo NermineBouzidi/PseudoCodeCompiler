@@ -1,0 +1,6 @@
+début
+entier x
+x ← 6
+afficher x
+// this is a comments
+fin
