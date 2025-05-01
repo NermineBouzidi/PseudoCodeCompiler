@@ -2,8 +2,4 @@
 
 int main() {
 int x;
-x = 6;
-printf("%d\n", x);
-//  this is a comments
-return 0;
-}
+x = 20;

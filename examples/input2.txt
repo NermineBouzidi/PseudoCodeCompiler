@@ -1,0 +1,5 @@
+début
+pour i de 1 à 5 faire
+    afficher i
+fin
+fin

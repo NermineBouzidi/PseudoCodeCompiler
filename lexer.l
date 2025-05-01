@@ -4,8 +4,8 @@
 #include <stdlib.h>
 %}
 
-digit   [0-9]
-alpha   [a-zA-Z]
+digit    [0-9]
+alpha    [a-zA-Z]
 alphanum [a-zA-Z0-9]
 
 %%
@@ -28,16 +28,36 @@ alphanum [a-zA-Z0-9]
 "default"         { return DEFAUT; }
 "break"           { return BREAK; }
 
+"+"               { return PLUS; }
+"-"               { return MOINS; }
+"*"               { return FOIS; }
+"/"               { return DIVISE; }
+"=="              { return EGAL; }
+"!="              { return DIFF; }
+"<"               { return INFERIEUR; }
+">"               { return SUPERIEUR; }
+"<="              { return INFEGAL; }
+">="              { return SUPEGAL; }
+"et"              { return ET; }
+"ou"              { return OU; }
+"non"             { return NON; }
+"("               { return PARENGAUCHE; }
+")"               { return PARENDROITE; }
+
+\"[^"]*\"         { 
+    yylval.str = strdup(yytext + 1);    // Enlever le premier "
+    yylval.str[strlen(yylval.str) - 1] = '\0';  // Enlever le dernier "
+    return STRING; 
+}
+
 {digit}+          { yylval.ival = atoi(yytext); return NOMBRE; }
 {alpha}({alphanum})* { yylval.str = strdup(yytext); return IDENTIFIANT; }
 
-[ \t\r\n]+        { /* ignore whitespace */ }
-.                 { printf("Unknown character: %s\n", yytext); }
+[ \t\r\n]+        { /* ignorer les espaces */ }
+.                 { printf("Caractère inconnu : %s\n", yytext); }
 
-"//"[^'\n']* { 
-    // Recognize the comment and ignore it in pseudo-code 
-    fprintf(yyout, "// %s\n", yytext + 2);  // Write it as a C-style comment
-}
+"//"[^'\n']*      { fprintf(yyout, "// %s\n", yytext + 2); }
+
 %%
 
 int yywrap() {

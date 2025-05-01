@@ -56,8 +56,25 @@
      CAS = 272,
      DEFAUT = 273,
      BREAK = 274,
-     NOMBRE = 275,
-     IDENTIFIANT = 276
+     PLUS = 275,
+     MOINS = 276,
+     FOIS = 277,
+     DIVISE = 278,
+     EGAL = 279,
+     DIFF = 280,
+     INFERIEUR = 281,
+     SUPERIEUR = 282,
+     INFEGAL = 283,
+     SUPEGAL = 284,
+     ET = 285,
+     OU = 286,
+     NON = 287,
+     PARENGAUCHE = 288,
+     PARENDROITE = 289,
+     NOMBRE = 290,
+     IDENTIFIANT = 291,
+     STRING = 292,
+     UMOINS = 293
    };
 #endif
 
@@ -68,7 +85,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 11 "parser.y"
+#line 15 "parser.y"
 
     int ival;
     char* str;
@@ -76,7 +93,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 80 "parser.tab.h"
+#line 97 "parser.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

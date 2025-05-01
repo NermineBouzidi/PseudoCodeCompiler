@@ -1,0 +1,13 @@
+début
+entier age
+age ← 25
+si age < 18 alors
+    afficher "Mineur"
+sinon
+    si age >= 18 et age < 65 alors
+        afficher "Adulte"
+    sinon
+        afficher "Senior"
+    fin
+fin
+fin

@@ -3,7 +3,7 @@
 
 extern int yyparse();
 extern FILE *yyin;
-extern FILE *yyout; // Ajouter yyout
+extern FILE *yyout;
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
@@ -11,25 +11,20 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Ouvrir le fichier d'entrée
     yyin = fopen(argv[1], "r");
     if (!yyin) {
         perror("fopen input");
         return 1;
     }
 
-    // Ouvrir le fichier de sortie
-    yyout = fopen("output.txt", "w");
+    yyout = fopen("output.c", "w");
     if (!yyout) {
         perror("fopen output");
         fclose(yyin);
         return 1;
     }
 
-    
-
     yyparse();
-
 
     fclose(yyin);
     fclose(yyout);

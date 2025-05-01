@@ -1,6 +1,4 @@
 début
-entier x
-x ← 6
-afficher x
-// this is a comments
+afficher "Bonjour le monde!"
+afficher (2 + 3) * 4
 fin
